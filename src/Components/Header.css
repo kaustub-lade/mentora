@@ -1,0 +1,325 @@
+/* Header.css */
+
+/* --- Base Header Styles --- */
+.mentora-header {
+  background-color: #2c3e50; /* Deep charcoal blue */
+  color: #ecf0f1; /* Off-white for text */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15); /* Soft, prominent shadow */
+  position: absolute;
+  top: 0;
+  z-index: 1000; /* Ensures header is always on top */
+  width: 100vw; /* Occupy full available width */
+  box-sizing: border-box; /* Include padding in the element's total width */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px; /* Optimal max-width for content alignment */
+  margin: 0 auto; /* Center the content within the header */
+  width: 100%; /* Ensure internal container uses full parent width up to max-width */
+}
+
+/* --- Logo Section --- */
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit; /* Inherit color from parent */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between icon and text */
+}
+
+.logo-icon {
+  font-size: 2.2rem;
+  color: #3498db; /* Vibrant blue for branding */
+  transition: transform 0.3s ease;
+}
+
+.logo-link:hover .logo-icon {
+  transform: rotate(5deg); /* Subtle hover effect */
+}
+
+.brand-name {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* --- Desktop Actions & Main Navigation --- */
+.desktop-actions {
+  display: flex; /* Flex container for nav and user actions */
+  align-items: center;
+  gap: 2rem; /* Space between main nav and user actions */
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 1.8rem; /* Space between nav items */
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-weight: 500;
+  padding: 0.6rem 0;
+  position: relative; /* For underline effect */
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #3498db;
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #3498db;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+/* --- Authentication/Profile/Logout Buttons (Desktop) --- */
+.notifications-button {
+  background: none;
+  border: none;
+  color: #ecf0f1;
+  cursor: pointer;
+  font-size: 1.5rem;
+  position: relative;
+  padding: 0;
+  transition: color 0.3s ease;
+  margin-right: 0.5rem; /* Space before buttons */
+}
+
+.notifications-button:hover {
+  color: #3498db;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #e74c3c; /* Red for alerts */
+  color: white;
+  border-radius: 50%;
+  padding: 3px 7px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+.auth-button {
+  background-color: #3498db; /* Primary blue for calls to action */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 1.4rem;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 1rem; /* Space between buttons */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer; /* Ensure buttons have pointer */
+}
+
+.auth-button:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.signup-button {
+  background-color: #2ecc71; /* Green for signup */
+}
+
+.signup-button:hover {
+  background-color: #27ae60;
+}
+
+.logout-button {
+  background-color: #e74c3c; /* Red for logout, stands out */
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+
+.profile-button {
+  background-color: #8e44ad; /* A subtle purple for profile */
+}
+
+.profile-button:hover {
+  background-color: #9b59b6;
+}
+
+
+/* --- Mobile Menu Toggle (Hamburger) --- */
+.mobile-menu-toggle {
+  background: none;
+  border: none;
+  color: #ecf0f1;
+  font-size: 2rem;
+  cursor: pointer;
+  display: none; /* Hidden on desktop */
+  margin-left: auto; /* Pushes toggle to the right on mobile */
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  color: #3498db;
+}
+
+/* --- Mobile Navigation/Dropdown Overlay --- */
+.mobile-nav-overlay {
+  position: absolute; /* Position relative to the header */
+  top: 100%; /* Start right below the header */
+  left: 0;
+  width: 100%;
+  background-color: #34495e; /* Slightly lighter charcoal for dropdown */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  padding: 0; /* No initial padding, controlled by max-height */
+  z-index: 998; /* Below header, above content */
+  max-height: 0; /* Hidden by default */
+  overflow: hidden; /* Hides content when max-height is 0 */
+  transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out; /* Smooth slide transition */
+}
+
+.mobile-nav-overlay.active {
+  max-height: 100vh; /* Sufficient height to show all menu items */
+  padding: 1rem 0; /* Add padding when active */
+}
+
+.mobile-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left; /* Align text left within dropdown */
+}
+
+.mobile-nav-list li {
+  margin-bottom: 0.2rem; /* Compact list items */
+}
+
+.mobile-nav-list a,
+.mobile-nav-list button {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.5rem; /* Generous touch area */
+  display: flex; /* For icon alignment */
+  align-items: center;
+  gap: 0.8rem;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  box-sizing: border-box; /* Include padding in width */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-list a:hover,
+.mobile-nav-list button:hover {
+  background-color: #2c3e50; /* Darker hover background */
+  color: #3498db; /* Blue text on hover */
+}
+
+.mobile-nav-list hr {
+  border: none;
+  border-top: 1px solid #4a6279; /* Subtle separator */
+  margin: 0.8rem 1.5rem; /* Align with item padding */
+}
+
+/* --- Responsive Media Queries --- */
+
+/* Tablet and Smaller Desktops (less than 1024px) */
+@media (max-width: 1024px) {
+  .desktop-actions .main-nav {
+    display: none; /* Hide main nav on smaller desktop screens */
+  }
+
+  .desktop-actions {
+    gap: 1rem; /* Reduce gap */
+  }
+
+  .auth-button {
+    padding: 0.6rem 1rem; /* Smaller auth buttons */
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Devices (less than 768px) */
+@media (max-width: 768px) {
+  .mentora-header {
+    padding: 0.8rem 1.5rem; /* More compact padding */
+  }
+
+  .header-container {
+    padding: 0; /* Reset internal container padding */
+  }
+
+  .logo-icon {
+    font-size: 1.8rem;
+  }
+
+  .brand-name {
+    font-size: 1.5rem;
+  }
+
+  .desktop-actions {
+    display: none; /* Hide all desktop actions on mobile */
+  }
+
+  .mobile-menu-toggle {
+    display: block; /* Show hamburger icon */
+  }
+
+  .mobile-nav-overlay.active {
+    max-height: 100vh; /* Max height for mobile dropdown */
+  }
+
+  .mobile-nav-list a,
+  .mobile-nav-list button {
+    font-size: 1rem; /* Slightly smaller font for mobile */
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+/* Very Small Mobile Devices (less than 480px) */
+@media (max-width: 480px) {
+  .mentora-header {
+    padding: 0.7rem 1rem;
+  }
+
+  .logo-icon {
+    font-size: 1.6rem;
+  }
+
+  .brand-name {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,56 @@
+/* src/pages/Profile.css */
+
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background-color: #f9f9f9;
+}
+
+.profile-card {
+  display: flex;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+}
+
+.profile-left {
+  flex: 1;
+  background-color: #eef2f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ccc;
+}
+
+.profile-right {
+  flex: 2;
+  padding: 30px;
+}
+
+.profile-right h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.profile-right p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.profile-right strong {
+  color: #222;
+}
